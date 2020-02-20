@@ -1,4 +1,4 @@
-#Cryptocurrency Dashboard
+# Cryptocurrency Dashboard
 
 By: John Li & Steven Schulze
 
