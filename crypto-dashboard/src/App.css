@@ -13,6 +13,14 @@
   }
 }
 
+#facebookLogo {
+  padding-left: 1rem;
+}
+
+.navbarLinks {
+  margin-top: 0.7rem;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
