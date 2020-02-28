@@ -21,6 +21,14 @@
   margin-top: 0.7rem;
 }
 
+.loginButton {
+  margin-left: 1rem;
+}
+
+#BTCLogo {
+  margin: 2rem 0rem;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
