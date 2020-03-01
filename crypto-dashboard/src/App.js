@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter, Link, NavLink, Route, Switch } from "react-router-dom";
 import ReactDOM from "react-dom";
-import bitcoinLogo from "./BTC_logo.svg";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -9,11 +8,11 @@ import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 import { SocialIcon } from "react-social-icons";
-import Home from "./components/Home";
-import News from "./components/News";
-import Cryptocurrencies from "./components/Cryptocurrencies";
-import Contact from "./components/Contact";
-import About from "./components/About";
+import LandingPage from "./components/LandingPage/LandingPage";
+import News from "./components/News/News";
+import Cryptocurrencies from "./components/Cryptocurrencies/Cryptocurrencies";
+import Contact from "./components/Contact/Contact";
+import About from "./components/About/About";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
@@ -23,7 +22,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/home">CryptoBoard</Navbar.Brand>
+          <Navbar.Brand href="/">CryptoBoard</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link as={NavLink} className="navbarLinks" to="/home">
               Home
@@ -61,27 +60,8 @@ function App() {
             </Button>
           </Form>
         </Navbar>
-        <header className="App-header">
-          <img
-            src={bitcoinLogo}
-            className="App-logo"
-            width="50%"
-            height="50%"
-            alt="logo"
-            id="BTCLogo"
-          />
-          <p>Cryptocurrency Dashboard</p>
-          <p>By: John Li</p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <Route path="/home" component={Home} />
+        <Route path="" component={LandingPage} />
+        <Route path="/home" component={LandingPage} />
         <Route path="/news" exact component={News} />
       </div>
     </BrowserRouter>
