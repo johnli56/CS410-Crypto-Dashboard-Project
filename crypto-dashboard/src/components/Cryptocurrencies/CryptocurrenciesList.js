@@ -13,7 +13,14 @@ class CryptocurrenciesList extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://swapi.co/api/planets")
+    fetch(
+      "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+      {
+        headers: {
+          "X-CMC_PRO_API_KEY": "373c7ff4-d424-44d1-8160-b334c2d678d9"
+        }
+      }
+    )
       .then(res => res.json())
       .then(
         result => {
