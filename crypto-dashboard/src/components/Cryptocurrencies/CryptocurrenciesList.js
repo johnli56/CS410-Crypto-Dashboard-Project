@@ -13,13 +13,13 @@ class CryptocurrenciesList extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://swapi.co/api/people/1")
+    fetch("https://swapi.co/api/planets")
       .then(res => res.json())
       .then(
         result => {
           this.setState({
             isLoaded: true,
-            items: result.name
+            items: result.results
           });
           console.log(result);
         },
