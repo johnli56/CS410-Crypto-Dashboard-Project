@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./LandingPage.css";
 import bitcoinLogo from "./../../BTC_logo.svg";
 import TodoList from "./../Moon/Moon.js";
+import CryptocurrenciesList from "../Cryptocurrencies/CryptocurrenciesList.js";
 
 //TODO: insert moon logo
 
@@ -11,6 +12,7 @@ const LandingPage = () => {
       <p>Insert Scrolling bar of Cryptocurrencies here.</p>
       <h2>It's going to the moon</h2>
       <TodoList></TodoList>
+      <CryptocurrenciesList></CryptocurrenciesList>
 
       <a
         className="Home-link"

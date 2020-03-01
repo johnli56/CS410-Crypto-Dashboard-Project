@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 import { SocialIcon } from "react-social-icons";
 import LandingPage from "./components/LandingPage/LandingPage";
 import News from "./components/News/News";
-import Cryptocurrencies from "./components/Cryptocurrencies/Cryptocurrencies";
+import CryptocurrenciesList from "./components/Cryptocurrencies/CryptocurrenciesList";
 import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
 
