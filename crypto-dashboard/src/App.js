@@ -30,7 +30,11 @@ function App() {
             <Nav.Link as={NavLink} className="navbarLinks" to="/news">
               News
             </Nav.Link>
-            <Nav.Link as={NavLink} className="navbarLinks" to="/pricing">
+            <Nav.Link
+              as={NavLink}
+              className="navbarLinks"
+              to="/cryptocurrencies"
+            >
               Cryptocurrencies
             </Nav.Link>
             <Nav.Link as={NavLink} className="navbarLinks" to="/contact">
@@ -63,6 +67,9 @@ function App() {
         <Route path="" component={LandingPage} />
         <Route path="/home" component={LandingPage} />
         <Route path="/news" exact component={News} />
+        <Route path="/cryptocurrencies" component={CryptocurrenciesList} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/about" component={About} />
       </div>
     </BrowserRouter>
   );
