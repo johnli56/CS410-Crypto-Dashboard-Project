@@ -64,7 +64,6 @@ function App() {
             </Button>
           </Form>
         </Navbar>
-        <Route path="" component={LandingPage} />
         <Route path="/home" component={LandingPage} />
         <Route path="/news" exact component={News} />
         <Route path="/cryptocurrencies" component={CryptocurrenciesList} />

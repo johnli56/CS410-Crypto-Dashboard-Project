@@ -8,25 +8,27 @@ class CryptocurrenciesList extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      items: [],
+      content: null
     };
   }
 
   componentDidMount() {
-    fetch(
-      "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
-      {
-        headers: {
-          "X-CMC_PRO_API_KEY": "373c7ff4-d424-44d1-8160-b334c2d678d9"
-        }
+    var proxyUrl = "https://cors-anywhere.herokuapp.com/",
+      targetUrl = "fillerDon'tText yet";
+    //"https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
+    fetch(proxyUrl + targetUrl, {
+      headers: {
+        "X-CMC_PRO_API_KEY": "373c7ff4-d424-44d1-8160-b334c2d678d9"
       }
-    )
+    })
       .then(res => res.json())
       .then(
         result => {
           this.setState({
             isLoaded: true,
-            items: result.results
+            content: result,
+            items: result.data
           });
           console.log(result);
         },
@@ -53,7 +55,7 @@ class CryptocurrenciesList extends React.Component {
             item //error because item is not an array, but in string form.
           ) => (
             <li key={item.name}>
-              name: {item.name} height: {item.name}
+              {item.name}: Price: {item.quote.USD.price}
             </li>
           ))}
         </ul>
