@@ -29,6 +29,8 @@ function App() {
       <div className="App">
         {/* The Navbar will stay for every page and be accssible the whole time for ease of navigation
           It utilizes the React-Bootstrap/Nav library
+
+          // TODO: Currently some of these links do not go anywhere and will need to be updated later
         */}
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="/">CryptoBoard</Navbar.Brand>

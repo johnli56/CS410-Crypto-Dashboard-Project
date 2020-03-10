@@ -13,6 +13,8 @@ require("firebase/auth");
 require("firebase/firestore");
 // This configuration info was pulled from the google firebase console 
 // under project general settings.
+// Security issue API key is exposed, for testing purposes I will leave it here
+// In the future I would not push the file containing the keys to Github.
 var firebaseConfig = {
   
     apiKey: "AIzaSyBGBGgnvAEW9F9nQfT8Q9T9S7Watw-HcuM",
@@ -42,13 +44,16 @@ class Login extends React.Component {
       };
     }
   
-  
-
-
+    // Time out the button for 1 second to display Loading instead of 
+    // Signup on the button state
     simulateSignupRequest() {
-      return new Promise(resolve => setTimeout(resolve, 5000));
+      return new Promise(resolve => setTimeout(resolve, 1000));
     }
+//           alert('Verification Email Has been Sent')
 
+    // When the loading button is detected to be true( onClick in this case ) then
+    // we will wait for the simiulateSignUpRequest promise to return then toggle it back
+    // to false, which will end up showing the "Sign Up" text on the button
     LoadingButton() {
 
       useEffect(() => {
@@ -59,7 +64,8 @@ class Login extends React.Component {
         }
       });
     }
-
+    // on Button Click, we set the state of isLoading to true, triggering the above
+    // LoadingButton() function.
     handleSignUp = () => {
       this.setState({isLoading: true});
     }

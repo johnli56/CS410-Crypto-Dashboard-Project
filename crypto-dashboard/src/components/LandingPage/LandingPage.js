@@ -32,7 +32,7 @@ const LandingPage = () => {
           id="BTCLogo"
         />
         <p>Cryptocurrency Dashboard</p>
-        <p>By: John Li</p>
+        <p>By : John Li</p>
       </header>
     </div>
   );
