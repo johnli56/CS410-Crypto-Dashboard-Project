@@ -6,9 +6,9 @@ const News = () => {
   return (
     <div>
       <h1>News page</h1>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/about">About</NavLink>
-      <NavLink to="/contact">Contact</NavLink>
+      <p><NavLink to="/">Home</NavLink></p>
+      <p><NavLink to="/about">About</NavLink></p>
+      <p><NavLink to="/contact">Contact</NavLink></p>
     </div>
   );
 };
