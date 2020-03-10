@@ -3,12 +3,12 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Crypto.css";
+import BTC from "./images/BTC.png"
 
 class Crypto extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          
         };
       }
 

@@ -34,7 +34,7 @@ const LandingPage = () => {
           id="BTCLogo"
         />
         <p>Cryptocurrency Dashboard</p>
-        <p>By : John Li</p>
+        <p>By : John Li, Steven Schulze</p>
       </header>
     </div>
   );
