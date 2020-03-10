@@ -1,3 +1,27 @@
+// Project Name: Cryptocurrency Dashboard / Crypto Board
+// Author: John Li
+// Class: CS410p Front-end Web Tech
+// Professor: Caterina Paul
+//
+// Description: This is a Single-page React Webapp that lists all the latest cryptocurrency prices
+// with fully functional email & password authentication implemented via firebase.
+// The webapp is hosted temporarily with firebase as well for testing purposes.
+// Later on if time allows, a news page will be added for more functionality as just the prices 
+// is not that unique in itself. 
+//
+// Features Implemented:
+// - Fully Functional Navbar that's fairly appealing
+// - Email Login Authentication (utilizing firebase)
+// - Display of top 100 cryptocurrencies using the CoinMarketCap API
+// - TODO: News page -- need to use a new API for news
+//
+// Potential Issues:
+// - There is a limited 333 API call limit on the free hobbyist CoinMarketCap Pro account
+//  which means testing may need to be evenly spread out until upgraded.
+// - Issues with getting firebase to work with authentication, found tutorials that didn't 
+// apply to my use case. Had to research and find something that fit the use case.
+
+
 import React, { Component } from "react";
 import { BrowserRouter, Link, NavLink, Route, Switch } from "react-router-dom";
 import ReactDOM from "react-dom";
@@ -73,6 +97,9 @@ function App() {
             <Navbar.Brand href="#home" id="linkedinLogo">
               <SocialIcon network="linkedin"></SocialIcon>
             </Navbar.Brand>
+            <Navbar.Brand href="#home" id="githubLogo">
+              <SocialIcon network="github"></SocialIcon>
+            </Navbar.Brand>
           </Nav>
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -85,8 +112,11 @@ function App() {
           </Form>
           
         </Navbar>
-        <Route path="/login" component={Login} />
         <Route path="/home" component={LandingPage} />
+        <Route path="/login" component={Login} />
+        
+        
+        
         <Route path="/news" exact component={News} />
         <Route path="/cryptocurrencies" component={CryptocurrenciesList} />
         <Route path="/contact" component={Contact} />

@@ -17,8 +17,13 @@
 }
 
 #email {
-  margin-left: 1.5rem;
-  padding-right: 4rem;
+  margin: 0.5rem;
+  padding-right: 2rem;
+}
+
+#password {
+    margin: 0.5rem;
+    padding-right: 1rem;
 }
 
 #signInButton {

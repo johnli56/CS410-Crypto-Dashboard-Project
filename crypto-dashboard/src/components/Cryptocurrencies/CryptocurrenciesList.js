@@ -1,6 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAsync } from "react-async";
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Crypto from "./Crypto.js"
 
 class CryptocurrenciesList extends React.Component {
   constructor(props) {
@@ -18,7 +22,7 @@ class CryptocurrenciesList extends React.Component {
 
   componentDidMount() {
     var proxyUrl = "https://cors-anywhere.herokuapp.com/",
-      targetUrl = "fillerDon'tText yet";
+      targetUrl = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
     //"https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
     fetch(proxyUrl + targetUrl, {
       headers: {
@@ -56,20 +60,21 @@ class CryptocurrenciesList extends React.Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading Cryptocurrencies List...</div>;
+      return <div>Loading Cryptocurrencies List... Please wait a moment.</div>;
     } else {
       return (
-        <ul>
-          
-          {items.map((
-            item //error because item is not an array, but in string form.
-            // TODO: Need to insert each piece of data received into a separate card component
-          ) => (
-            <li key={item.name}>
-              {item.name}: Price: {item.quote.USD.price}
-            </li>
-          ))}
-        </ul>
+        <Container fluid="sm">
+          <Row>
+            {items.map(crypto => (
+              <Crypto crypto={crypto} />
+            ))}
+          </Row>
+          {/*// TODO: Need to insert each piece of data received into a separate card component
+            (
+              <li key={item.name}>
+                {item.name}: Price: {item.quote.USD.price}
+            </li>*/}
+        </Container>
       );
     }
   }

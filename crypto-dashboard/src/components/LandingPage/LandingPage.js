@@ -5,14 +5,16 @@ import TodoList from "./../Moon/Moon.js";
 import CryptocurrenciesList from "../Cryptocurrencies/CryptocurrenciesList.js";
 
 //TODO: insert moon logo
-
-const LandingPage = () => {
-  return (
-    <div>
-      <p>Insert Scrolling bar of Cryptocurrencies here.</p>
+/*
+<p>Insert Scrolling bar of Cryptocurrencies here.</p>
       <h2>It's going to the moon</h2>
       <TodoList></TodoList>
       <CryptocurrenciesList></CryptocurrenciesList>
+*/
+const LandingPage = () => {
+  return (
+    <div>
+      
 
       <a
         className="Home-link"
