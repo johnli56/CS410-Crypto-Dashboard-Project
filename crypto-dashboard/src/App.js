@@ -13,34 +13,50 @@ import News from "./components/News/News";
 import CryptocurrenciesList from "./components/Cryptocurrencies/CryptocurrenciesList";
 import Contact from "./components/Contact/Contact";
 import About from "./components/About/About";
+import Login from "./components/Login/Login";
+
 
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 function App() {
+  
+  //This is the main App.js page there is browser router component wrapping everything
+  // so that the single page React Application "Routes" to other parts of the webpage
+
   return (
     <BrowserRouter>
       <div className="App">
+        {/* The Navbar will stay for every page and be accssible the whole time for ease of navigation
+          It utilizes the React-Bootstrap/Nav library
+        */}
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="/">CryptoBoard</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link as={NavLink} className="navbarLinks" to="/home">
+            <Nav.Link as={NavLink} 
+            className="navbarLinks" 
+            to="/home">
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} className="navbarLinks" to="/news">
+            <Nav.Link as={NavLink} 
+            className="navbarLinks" 
+            to="/news">
               News
             </Nav.Link>
             <Nav.Link
-              as={NavLink}
-              className="navbarLinks"
-              to="/cryptocurrencies"
-            >
+              as={NavLink} 
+              className="navbarLinks" 
+              to="/cryptocurrencies">
               Cryptocurrencies
             </Nav.Link>
-            <Nav.Link as={NavLink} className="navbarLinks" to="/contact">
+            <Nav.Link as={NavLink} 
+            className="navbarLinks" 
+            to="/contact">
               Contact
             </Nav.Link>
-            <Nav.Link as={NavLink} className="navbarLinks" to="/about">
+            <Nav.Link as={NavLink} 
+            className="navbarLinks" 
+            to="/about">
               About us
             </Nav.Link>
             <Navbar.Brand href="#home" id="facebookLogo">
@@ -58,12 +74,16 @@ function App() {
           </Nav>
           <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-info">Find Crypto</Button>
-            <Button className="loginButton" variant="outline-info">
-              Login
-            </Button>
+            <Button className="mr-sm-1" variant="outline-info">Find Crypto</Button>
+            <Nav.Link as={NavLink} className="LoginLink" to="/login">
+              <Button className="mr-sm-1 loginButton" variant="outline-info">
+                Login
+              </Button>
+            </Nav.Link>
           </Form>
+          
         </Navbar>
+        <Route path="/login" component={Login} />
         <Route path="/home" component={LandingPage} />
         <Route path="/news" exact component={News} />
         <Route path="/cryptocurrencies" component={CryptocurrenciesList} />
