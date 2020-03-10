@@ -63,7 +63,7 @@ class CryptocurrenciesList extends React.Component {
       return <div>Loading Cryptocurrencies List... Please wait a moment.</div>;
     } else {
       return (
-        <Container fluid="sm">
+        <Container fluid="md">
           <Row>
             {items.map(crypto => (
               <Crypto crypto={crypto} />
