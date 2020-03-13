@@ -77,7 +77,7 @@ function App() {
             </Nav.Link>
             <Nav.Link as={NavLink} 
             className="navbarLinks" 
-            to="/Marketcap">
+            to="/marketcap">
               Marketcap
             </Nav.Link>
             <Nav.Link as={NavLink} 
