@@ -27,14 +27,14 @@ class Marketcap extends React.Component {
           'Yellow'
         ],
         datasets: [{
-          data: [300, 50, 100],
+          data: [0, 0, 0],
           backgroundColor: [
-          '#FF6384',
+          '#FF5555',
           '#36A2EB',
           '#FFCE56'
           ],
           hoverBackgroundColor: [
-          '#FF6384',
+          '#FF6666',
           '#36A2EB',
           '#FFCE56'
           ]
@@ -69,6 +69,9 @@ class Marketcap extends React.Component {
           var i;
           var topTenCryptocurrencyArray = [];
           var topTenCryptocurrencyMarketcapArray = [];
+          var colorArray = ['#fcba03','#03b5fc','#4d788a','#c93810', '#c93810'];
+
+          
           
           // This for loop initializes the cryptocurrency array to the top 10 crypto names
           // Also grab the latest respective prices for each cryptocurrency
@@ -90,9 +93,8 @@ class Marketcap extends React.Component {
             simpleData:{
               labels: topTenCryptocurrencyArray,
               datasets: [{
-                
                 data: topTenCryptocurrencyMarketcapArray,
-                backgroundColor: '#FF6384' }, 
+                backgroundColor: colorArray}, 
                 
               ]
             }
@@ -117,16 +119,10 @@ class Marketcap extends React.Component {
       <div>
         <h1>Marketcap Page</h1>
         <p>Marketcap page body content</p>
-
         <div>
         <h2>Pie Example</h2>
         <Pie id="top10MarketcapPieChart" data={this.state.simpleData} />
       </div>
-
-
-
-
-
       </div>
     );
   }
