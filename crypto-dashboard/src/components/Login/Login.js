@@ -170,11 +170,8 @@ class Login extends React.Component {
       // [START sendemailverification]
       firebase.auth().currentUser.sendEmailVerification().then(function() {
         // Email Verification sent!
-        // [START_EXCLUDE]
         alert('Email Verification Sent!');
-        // [END_EXCLUDE]
       });
-      // [END sendemailverification]
     }
 
     // on Button Click, we set the state of isLoading to true, triggering the above
@@ -266,7 +263,7 @@ class Login extends React.Component {
 
 
           {/* Delete this later after testing authentication
-          <!-- Container where we'll display the user details -->*/}
+          <!-- Container where we'll display the user details -->
           <div class="quickstart-user-details-container">
           <button disabled class="mdl-button mdl-js-button mdl-button--raised" id="quickstart-sign-in" name="signin">Sign In</button>
           <button class="mdl-button mdl-js-button mdl-button--raised" disabled id="quickstart-verify-email" name="verify-email">Send Email Verification</button>
@@ -278,8 +275,9 @@ class Login extends React.Component {
             {error && <p>Error: {error.message}</p>}
             {email && <p>Email successfully signed in: {email}</p>}
             {password && <p>Password successfully signed in: {password}</p>}
-
-          </div>
+          
+          </div> 
+          */}
         </div>
 
 
