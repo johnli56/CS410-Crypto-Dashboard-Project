@@ -23,7 +23,7 @@ class CryptocurrenciesList extends React.Component {
   componentDidMount() {
     var proxyUrl = "https://cors-anywhere.herokuapp.com/",
       targetUrl = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
-    //"https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
+    //"https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/historical";
     fetch(proxyUrl + targetUrl, {
       headers: {
         "X-CMC_PRO_API_KEY": "373c7ff4-d424-44d1-8160-b334c2d678d9"
@@ -35,7 +35,7 @@ class CryptocurrenciesList extends React.Component {
           this.setState({
             isLoaded: true,
             content: result,
-            items: result.data
+            items: result.data //store the results in the items array which we will process later
           });
           console.log(result);
         },
@@ -58,14 +58,17 @@ class CryptocurrenciesList extends React.Component {
   render() {
     const { error, isLoaded, items } = this.state;
     if (error) {
+      // When there is an error we want to display to user to let them know what happened.
       return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
+    } else if (!isLoaded) { 
+      // Show a loading message while we retrieve the data.
       return <div>Loading Cryptocurrencies List... Please wait a moment.</div>;
     } else {
       return (
         <Container fluid="md">
           <Row>
-            {items.map(crypto => (
+            {items.map(crypto => ( // Pass in each cryptocurrency to the Crypto component for 
+            // rendering in nice looking cards. Use react-bootstrap grid to look prettier.
               <Crypto crypto={crypto} />
             ))}
           </Row>

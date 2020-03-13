@@ -1,5 +1,5 @@
 // Project Name: Cryptocurrency Dashboard / Crypto Board
-// Author: John Li
+// Author: John Li & Steven Schulze
 // Class: CS410p Front-end Web Tech
 // Professor: Caterina Paul
 //
