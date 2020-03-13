@@ -12,6 +12,9 @@ class Crypto extends React.Component {
         };
       }
 
+    // We will match the string of the unique cryptocurrency symbols with the respective logo
+    // This is done for the first 15 cryptos, more will be added later
+    
     FindMatchingLogo() {
 
     }
