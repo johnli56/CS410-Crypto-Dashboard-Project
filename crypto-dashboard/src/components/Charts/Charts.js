@@ -1,12 +1,8 @@
 import React from "react";
-import {Pie} from 'react-chartjs-2';
+import { Pie } from "react-chartjs-2";
+import "./Charts.css";
 
-
-
-
-
-
-class Marketcap extends React.Component {
+class Charts extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,42 +11,27 @@ class Marketcap extends React.Component {
       content: null,
       items: [],
       simpleData: {
-        datasets: [{
-
-        }],
+        datasets: [{}],
         labels: []
       },
       pieChartData: {
-        labels: [
-          'Red',
-          'Blue',
-          'Yellow'
-        ],
-        datasets: [{
-          data: [0, 0, 0],
-          backgroundColor: [
-          '#FF5555',
-          '#36A2EB',
-          '#FFCE56'
-          ],
-          hoverBackgroundColor: [
-          '#FF6666',
-          '#36A2EB',
-          '#FFCE56'
-          ]
-        }]
-      },
-
-    }
+        labels: ["Red", "Blue", "Yellow"],
+        datasets: [
+          {
+            data: [0, 0, 0],
+            backgroundColor: ["#FF5555", "#36A2EB", "#FFCE56"],
+            hoverBackgroundColor: ["#FF6666", "#36A2EB", "#FFCE56"]
+          }
+        ]
+      }
+    };
   }
 
-  
-
   componentDidMount() {
-    
     var proxyUrl = "https://cors-anywhere.herokuapp.com/",
-      targetUrl = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
-      //""; 
+      targetUrl =
+        "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
+    //"";
     //"https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest";
     fetch(proxyUrl + targetUrl, {
       headers: {
@@ -65,20 +46,25 @@ class Marketcap extends React.Component {
             content: result,
             items: result.data
           });
-          
+
           var i;
           var topTenCryptocurrencyArray = [];
           var topTenCryptocurrencyMarketcapArray = [];
-          var colorArray = ['#fcba03','#03b5fc','#4d788a','#c93810', '#c93810'];
+          var colorArray = [
+            "#fcba03",
+            "#03b5fc",
+            "#4d788a",
+            "#c93810",
+            "#c93810"
+          ];
 
-          
-          
           // This for loop initializes the cryptocurrency array to the top 10 crypto names
           // Also grab the latest respective prices for each cryptocurrency
-          for (i = 0; i < 10; i++)
-          {
+          for (i = 0; i < 10; i++) {
             topTenCryptocurrencyArray.push(this.state.items[i].name);
-            topTenCryptocurrencyMarketcapArray.push(this.state.items[i].quote.USD.market_cap);
+            topTenCryptocurrencyMarketcapArray.push(
+              this.state.items[i].quote.USD.market_cap
+            );
             console.log(this.state.items[i].quote.market_cap);
           }
 
@@ -90,19 +76,19 @@ class Marketcap extends React.Component {
           console.log("before the setState" + this.state.simpleData);
 
           this.setState({
-            simpleData:{
+            simpleData: {
               labels: topTenCryptocurrencyArray,
-              datasets: [{
-                data: topTenCryptocurrencyMarketcapArray,
-                backgroundColor: colorArray}, 
-                
+              datasets: [
+                {
+                  data: topTenCryptocurrencyMarketcapArray,
+                  backgroundColor: colorArray
+                }
               ]
             }
-          })
-          
+          });
+
           // Replace with the new data, double check it's what we want it to be.
           console.log(this.state.simpleData);
-          
         },
         // Handle errors here so that we do not swallow exceptions from component bug
         error => {
@@ -116,17 +102,22 @@ class Marketcap extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Marketcap Page</h1>
+      <div className="ChartsPage">
+        <h1>Cryptocurrency Charts</h1>
         <p>Marketcap page body content</p>
-        <div>
-        <h2>Pie Example</h2>
-        <Pie id="top10MarketcapPieChart" data={this.state.simpleData} />
-      </div>
+
+        <div className="MarketSharePieChart">
+          <h2>Pie Chart of top 10 Cryptocurrency's Marketshare</h2>
+          <Pie id="top10MarketcapPieChart" data={this.state.simpleData} />
+        </div>
+
+        <div className="TradeVolumeBarGraph">
+
+        </div>
+
       </div>
     );
   }
 }
 
-export default Marketcap;
- 
+export default Charts;

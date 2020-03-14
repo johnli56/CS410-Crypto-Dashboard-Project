@@ -35,7 +35,7 @@ import { SocialIcon } from "react-social-icons";
 import LandingPage from "./components/LandingPage/LandingPage";
 import News from "./components/News/News";
 import CryptocurrenciesList from "./components/Cryptocurrencies/CryptocurrenciesList";
-import Marketcap from "./components/Marketcap/Marketcap";
+import Charts from "./components/Charts/Charts";
 import About from "./components/About/About";
 import Login from "./components/Login/Login";
 
@@ -77,8 +77,8 @@ function App() {
             </Nav.Link>
             <Nav.Link as={NavLink} 
             className="navbarLinks" 
-            to="/Marketcap">
-              Marketcap
+            to="/charts">
+              Charts
             </Nav.Link>
             <Nav.Link as={NavLink} 
             className="navbarLinks" 
@@ -114,12 +114,9 @@ function App() {
         </Navbar>
         <Route path="/home" component={LandingPage} />
         <Route path="/login" component={Login} />
-        
-        
-        
         <Route path="/news" exact component={News} />
         <Route path="/cryptocurrencies" component={CryptocurrenciesList} />
-        <Route path="/marketcap" component={Marketcap} />
+        <Route path="/charts" component={Charts} />
         <Route path="/about" component={About} />
       </div>
     </BrowserRouter>
