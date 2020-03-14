@@ -1,0 +1,43 @@
+.ChartsPage {
+    margin-top: 2rem;
+}
+
+.MarketSharePieChart {
+    margin: 2rem;
+    padding: 1rem;
+    background-color: azure;
+    border: 2px solid black;
+    border-radius: 30px;
+}
+
+.TradeVolume24HRBarGraph {
+    margin: 2.0rem;
+    padding: 1.2rem;
+    background-color: bisque;
+    border: 2px solid black;
+    border-radius: 30px;
+}
+
+.PercentChange1HRLineGraph {
+    margin: 2.0rem;
+    padding: 1.5rem;
+    background-color: #EBDEF0;
+    border: 2px solid black;
+    border-radius: 30px;
+}
+
+.PercentChange24HRLineGraph {
+    margin: 2.0rem;
+    padding: 1.5rem;
+    background-color: #F2D7D5;
+    border: 2px solid black;
+    border-radius: 30px;
+}
+
+.PercentChange7DAYBarGraph {
+    margin: 2.0rem;
+    padding: 1.5rem;
+    background-color: #AED6F1;
+    border: 2px solid black;
+    border-radius: 30px;
+}

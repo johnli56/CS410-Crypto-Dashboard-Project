@@ -35,7 +35,7 @@ import { SocialIcon } from "react-social-icons";
 import LandingPage from "./components/LandingPage/LandingPage";
 import News from "./components/News/News";
 import CryptocurrenciesList from "./components/Cryptocurrencies/CryptocurrenciesList";
-import Marketcap from "./components/Marketcap/Marketcap";
+import Charts from "./components/Charts/Charts";
 import About from "./components/About/About";
 import Login from "./components/Login/Login";
 
@@ -57,7 +57,7 @@ function App() {
           // TODO: Currently some of these links do not go anywhere and will need to be updated later
         */}
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/">CryptoBoard</Navbar.Brand>
+          <Navbar.Brand href="/home">CryptoBoard</Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link as={NavLink} 
             className="navbarLinks" 
@@ -77,14 +77,18 @@ function App() {
             </Nav.Link>
             <Nav.Link as={NavLink} 
             className="navbarLinks" 
-            to="/Marketcap">
-              Marketcap
+            to="/charts">
+              Charts
             </Nav.Link>
             <Nav.Link as={NavLink} 
             className="navbarLinks" 
             to="/about">
               About us
             </Nav.Link>
+            {/*
+            TODO: Create new Social media pages for the Crypto Board Dashboard
+            and then link them below
+             */}
             <Navbar.Brand href="#home" id="facebookLogo">
               <SocialIcon network="facebook"></SocialIcon>
             </Navbar.Brand>
@@ -94,10 +98,10 @@ function App() {
             <Navbar.Brand href="#home" id="twitterLogo">
               <SocialIcon network="twitter"></SocialIcon>
             </Navbar.Brand>
-            <Navbar.Brand href="#home" id="linkedinLogo">
+            <Navbar.Brand href="https://www.linkedin.com/in/john-li-3363b0128/" id="linkedinLogo">
               <SocialIcon network="linkedin"></SocialIcon>
             </Navbar.Brand>
-            <Navbar.Brand href="#home" id="githubLogo">
+            <Navbar.Brand href="https://github.com/johnli56/CS410-Crypto-Dashboard-Project" id="githubLogo">
               <SocialIcon network="github"></SocialIcon>
             </Navbar.Brand>
           </Nav>
@@ -114,12 +118,9 @@ function App() {
         </Navbar>
         <Route path="/home" component={LandingPage} />
         <Route path="/login" component={Login} />
-        
-        
-        
         <Route path="/news" exact component={News} />
         <Route path="/cryptocurrencies" component={CryptocurrenciesList} />
-        <Route path="/marketcap" component={Marketcap} />
+        <Route path="/charts" component={Charts} />
         <Route path="/about" component={About} />
       </div>
     </BrowserRouter>

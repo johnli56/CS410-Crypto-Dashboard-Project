@@ -12,9 +12,10 @@ import CryptocurrenciesList from "../Cryptocurrencies/CryptocurrenciesList.js";
       <CryptocurrenciesList></CryptocurrenciesList>
 */
 const LandingPage = () => {
+
+  
   return (
     <div>
-      
 
       <a
         className="Home-link"
@@ -34,7 +35,7 @@ const LandingPage = () => {
           id="BTCLogo"
         />
         <p>Cryptocurrency Dashboard</p>
-        <p>By : John Li, Steven Schulze</p>
+        <p>By: John Li  &  Steven Schulze</p>
       </header>
     </div>
   );
