@@ -61,6 +61,7 @@ class Charts extends React.Component {
           var topTenCryptocurrency1HRPercentChange = [];
           var topTenCryptocurrency7DAYPercentChange = [];
 
+          // These are close to the colors of the actual top ten Cryptocurrencies
           var topTenCryptocurrencyColorArray = [
             "#fcba03",
             "#03b5fc",
@@ -111,7 +112,7 @@ class Charts extends React.Component {
           console.log(topTenCryptocurrency1HRPercentChange);
           console.log(topTenCryptocurrency24HRPercentChange);
           console.log(topTenCryptocurrency7DAYPercentChange);
-          console.log("before the setState" + this.state.simpleData);
+          console.log("before the setStat" + this.state.simpleData);
 
           // Initialize the local component state variables with the data gathered
           this.setState({
@@ -214,7 +215,7 @@ class Charts extends React.Component {
 
         <div className="PercentChange1HRLineGraph">
           <h2>
-            Line Graph of top 10 Cryptocurrency 1 Hour Price % Change in USD ( $
+            Bar Graph of top 10 Cryptocurrency 1 Hour Price % Change in USD ( $
             )
           </h2>
           <Bar
@@ -225,7 +226,7 @@ class Charts extends React.Component {
 
         <div className="PercentChange24HRLineGraph">
           <h2>
-            Line Graph of top 10 Cryptocurrency 24 Hour Price % Change in USD (
+            Bar Graph of top 10 Cryptocurrency 24 Hour Price % Change in USD (
             $ )
           </h2>
           <Bar
