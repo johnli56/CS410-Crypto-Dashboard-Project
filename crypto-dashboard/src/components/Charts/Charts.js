@@ -70,7 +70,7 @@ class Charts extends React.Component {
 
           // DEBUG: Testing results
           //console.log(result);
-          //console.log(result.data);
+          console.log(result.data);
           console.log(topTenCryptocurrencyArray);
           console.log(topTenCryptocurrencyMarketcapArray);
           console.log("before the setState" + this.state.simpleData);
@@ -104,14 +104,15 @@ class Charts extends React.Component {
     return (
       <div className="ChartsPage">
         <h1>Cryptocurrency Charts</h1>
-        <p>Marketcap page body content</p>
+        <p>Charts display Marketshare, Trade volume, Prices, and Percent Change of Price.</p>
 
         <div className="MarketSharePieChart">
           <h2>Pie Chart of top 10 Cryptocurrency's Marketshare</h2>
           <Pie id="top10MarketcapPieChart" data={this.state.simpleData} />
         </div>
 
-        <div className="TradeVolumeBarGraph">
+        <div className="TradeVolume24HRBarGraph">
+           <h2>Bar Graph of top 10 Cryptocurrency's 24 Hour Trade Volume</h2>
 
         </div>
 
