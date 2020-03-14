@@ -17,7 +17,7 @@
 .PercentChange1HRLineGraph {
     margin: 2.0rem;
     padding: 1.5rem;
-    background-color: bisque;
+    background-color: #EBDEF0;
     border: 2px solid black;
     border-radius: 30px;
 }
@@ -25,15 +25,15 @@
 .PercentChange24HRLineGraph {
     margin: 2.0rem;
     padding: 1.5rem;
-    background-color: bisque;
+    background-color: #F2D7D5;
     border: 2px solid black;
     border-radius: 30px;
 }
 
-.PercentChange7DAYLineGraph {
+.PercentChange7DAYBarGraph {
     margin: 2.0rem;
     padding: 1.5rem;
-    background-color: bisque;
+    background-color: #AED6F1;
     border: 2px solid black;
     border-radius: 30px;
 }
