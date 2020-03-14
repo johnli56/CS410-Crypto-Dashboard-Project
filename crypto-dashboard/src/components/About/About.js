@@ -31,8 +31,8 @@ const About = () => {
         </p>
         Any suggestions for improvements would be appreciated!
         <p id="ContactEmail">
-          Please let me know what I can add or improve at:
-          <a href="#" onClick="handleEmailClick()"> Li.johnny34@gmail.com</a>
+          Please let me know what I can add or improve at: 
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=li.johnny34@gmail.com"> Click here </a>
         </p>
       </p>
     </div>

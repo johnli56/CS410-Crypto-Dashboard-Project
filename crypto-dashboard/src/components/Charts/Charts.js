@@ -1,5 +1,5 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
+import { Pie, Bar } from "react-chartjs-2";
 import "./Charts.css";
 
 class Charts extends React.Component {
@@ -10,19 +10,17 @@ class Charts extends React.Component {
       isLoaded: false,
       content: null,
       items: [],
-      simpleData: {
-        datasets: [{}],
+      marketshareData: {
+        datasets: [{
+
+        }],
         labels: []
       },
-      pieChartData: {
-        labels: ["Red", "Blue", "Yellow"],
-        datasets: [
-          {
-            data: [0, 0, 0],
-            backgroundColor: ["#FF5555", "#36A2EB", "#FFCE56"],
-            hoverBackgroundColor: ["#FF6666", "#36A2EB", "#FFCE56"]
-          }
-        ]
+      tradeVolumeData: {
+        datasets: [{
+
+        }],
+        labels: []
       }
     };
   }
@@ -50,22 +48,44 @@ class Charts extends React.Component {
           var i;
           var topTenCryptocurrencyArray = [];
           var topTenCryptocurrencyMarketcapArray = [];
-          var colorArray = [
+          var topTenCryptocurrency24HRTradeVolume = [];
+          var topTenCryptocurrency24HRPercentChange = [];
+          var topTenCryptocurrency1HRPercentChange = [];
+          var topTenCryptocurrency7DAYPercentChange = [];
+
+
+          var topTenCryptocurrencyColorArray = [
             "#fcba03",
             "#03b5fc",
             "#4d788a",
-            "#c93810",
-            "#c93810"
+            "#33FF4F",
+            "#FFA233",
+            "#33A2FF",
+            "#FFF633",
+            "#858585",
+            "#F0D661",
+            "#4879D5"
+
           ];
 
           // This for loop initializes the cryptocurrency array to the top 10 crypto names
           // Also grab the latest respective prices for each cryptocurrency
+          // Grabs each currency's:
+          // Crypto Name
+          // Cryptocurrency Marketcap
+          // 24HR Trade volume
+          // 1HR Percent change
+          // 24HR Percent change
+          // 7day Percent change
           for (i = 0; i < 10; i++) {
             topTenCryptocurrencyArray.push(this.state.items[i].name);
             topTenCryptocurrencyMarketcapArray.push(
               this.state.items[i].quote.USD.market_cap
             );
-            console.log(this.state.items[i].quote.market_cap);
+            topTenCryptocurrency24HRTradeVolume.push(this.state.items[i].quote.USD.volume_24h);
+            topTenCryptocurrency1HRPercentChange.push(this.state.items[i].quote.USD.percent_change_1h);
+            topTenCryptocurrency24HRPercentChange.push(this.state.items[i].quote.USD.percent_change_24h);
+            topTenCryptocurrency7DAYPercentChange.push(this.state.items[i].quote.USD.percent_change_7d);
           }
 
           // DEBUG: Testing results
@@ -73,22 +93,37 @@ class Charts extends React.Component {
           console.log(result.data);
           console.log(topTenCryptocurrencyArray);
           console.log(topTenCryptocurrencyMarketcapArray);
+          console.log(topTenCryptocurrency24HRTradeVolume);
           console.log("before the setState" + this.state.simpleData);
 
+          // Initialize the local component state variables with the data gathered
           this.setState({
-            simpleData: {
+
+            marketshareData: {
               labels: topTenCryptocurrencyArray,
               datasets: [
                 {
                   data: topTenCryptocurrencyMarketcapArray,
-                  backgroundColor: colorArray
+                  backgroundColor: topTenCryptocurrencyColorArray
+                }
+              ]
+            },
+            
+            tradeVolumeData: {
+              labels: topTenCryptocurrencyArray,
+              datasets: [
+                {
+                  data: topTenCryptocurrency24HRTradeVolume,
+                  backgroundColor: topTenCryptocurrencyColorArray
                 }
               ]
             }
           });
 
           // Replace with the new data, double check it's what we want it to be.
-          console.log(this.state.simpleData);
+          console.log(this.state.marketshareData);
+          console.log("Trade Volume data below: ");
+          console.log(this.state.tradeVolumeData);
         },
         // Handle errors here so that we do not swallow exceptions from component bug
         error => {
@@ -104,18 +139,35 @@ class Charts extends React.Component {
     return (
       <div className="ChartsPage">
         <h1>Cryptocurrency Charts</h1>
-        <p>Charts display Marketshare, Trade volume, Prices, and Percent Change of Price.</p>
+        <p>
+          Charts display Marketshare, Trade volume, Prices, and Percent Change
+          of Price.
+        </p>
 
         <div className="MarketSharePieChart">
-          <h2>Pie Chart of top 10 Cryptocurrency's Marketshare</h2>
-          <Pie id="top10MarketcapPieChart" data={this.state.simpleData} />
+          <h2>Pie Chart of top 10 Cryptocurrency's Marketshare in USD ( $ )</h2>
+          <Pie id="top10MarketcapPieChart" data={this.state.marketshareData} />
         </div>
 
         <div className="TradeVolume24HRBarGraph">
-           <h2>Bar Graph of top 10 Cryptocurrency's 24 Hour Trade Volume</h2>
+          <h2>Bar Graph of top 10 Cryptocurrency's 24 Hour Trade Volume in USD ( $ )</h2>
+          <Bar id="top10TradeVolume24HRBarGraph" data={this.state.tradeVolumeData} />
+        </div>
+
+        <div className="PercentChange1HRLineGraph">
+        <h2>Line Graph of top 10 Cryptocurrency's 1 Hour Price Percent Change in USD ( $ )</h2>
 
         </div>
 
+        <div className="PercentChange24HRLineGraph">
+        <h2>Line Graph of top 10 Cryptocurrency's 24 Hour Price Percent Change in USD ( $ )</h2>
+          
+        </div>
+
+        <div className="PercentChange7DAYLineGraph">
+        <h2>Line Graph of top 10 Cryptocurrency's 7 Day Price Percent Change in USD ( $ )</h2>
+          
+        </div>
       </div>
     );
   }
